@@ -1,6 +1,6 @@
-class ImageLink < ActiveRecord::Base
-    scope :recent, lambda { order('created_at DESC').limit(5) }
-    
+class VideoLink < ActiveRecord::Base
+    scope :recent, lambda { order('created_at DESC').limit(10) }
+
     validates_presence_of :url
     validates_presence_of :title
     belongs_to :user 

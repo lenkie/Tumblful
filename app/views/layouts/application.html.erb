@@ -12,9 +12,23 @@
     <h1 class='pull-left'>Tumblful</h1>
   </a>
   <%= button_to("Sign out", destroy_user_session_path, :method => :delete, :class => "pull-right") if user_signed_in? %>
+
+  <div id="nav-links">
+    <div><%= link_to "Image Links", image_links_path %></div>
+    <div><%= link_to "Video Links", video_links_path %></div>
+    <div><%= link_to "Text Posts", text_posts_path %></div>
+    <div><%= link_to "Follows", follows_path %></div>
+  </div>
+
 </nav>
-<%= notices %>
-<div class='main-content'>
+
+<div id="left-nav">
+  <%= render :partial => 'shared/left_nav' %>
+</div>
+
+<div id="main-content">
+  <%= notices %>
+  
   <%= yield %>
 </div>
 </body>

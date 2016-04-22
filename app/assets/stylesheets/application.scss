@@ -7,7 +7,33 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
+ 
+ *=require jquery-ui
+ *=require_self
+ *=require_tree .
+ 
  */
+ 
+ #nav-links div {
+     float: left;
+     padding-left: 10px;
+     a:visited, a:link {
+         color: white;
+     }
+ }
+ 
+ #left-nav {
+  float: left;
+  clear: left;
+  width: 200px;
+  padding: 0 20px 0 20px;
+  height: 100%;
+ }
+ 
+ #main-content {
+  // float: left;
+ }
+
+.user-info li {
+  list-style-type: none;
+}

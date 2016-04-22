@@ -7,6 +7,12 @@ class HomeController < ApplicationController
   # code is actually required here.
   #
   def index
-
+    if current_user
+      redirect_to follows_url
+    end
   end
+  
+  def stream
+    
+  end 
 end

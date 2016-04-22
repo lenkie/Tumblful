@@ -1,3 +1,27 @@
+<%= link_to 'New Image', new_image_link_path, class: 'new-link' %>
+
 <% @image_links.each do |image_link| %>
-  <%= content_tag :p, image_link.url %>
+  <%= div_for image_link do %>
+    <h2><%= image_link.title %></h2>
+    <%= image_tag image_link.url, :class => 'image-link-image thumbnail' %>
+
+    <div class='likes pull-left'>
+    <span class='total-likes'><%= image_link.likes.count %></span> likes
+    </div>
+
+    <%= form_for Like.new, :remote => true do |f| %>
+      <%= f.hidden_field :likeable_type, :value => image_link.class %>
+      <%= f.hidden_field :likeable_id, :value => image_link.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Like" %>
+    <% end %>
+    
+    <%= content_tag :p do %>
+      <%= link_to(nil, image_link.title) %> | <%= link_to 'Edit', edit_image_link_path(image_link) %> 
+      <%= button_to "Delete Link", image_link_path(image_link), method: :delete, data: { confirm: "Are you sure?"} %>
+  
+      <% end %>
+      
+  <% end %>
+
 <% end %>

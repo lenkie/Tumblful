@@ -8,3 +8,11 @@
 ImageLink.create(url: 'https://pbs.twimg.com/profile_images/378800000577077151/4956a8032dd8549b99463f8501fe88bf_400x400.png', title: 'Thinkful logo')
 ImageLink.create(url: 'http://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Ruby_on_Rails.svg/791px-Ruby_on_Rails.svg.png', title: "Rails logo" )
 ImageLink.create(url: 'https://lh6.googleusercontent.com/-NxZGUZXZg6A/AAAAAAAAAAI/AAAAAAAAAAc/QS4oVJL2NgI/photo.jpg', title: "Ruby logo")
+
+TextPost.create(body: 'Hey hey', title: "Today")
+TextPost.create(body: 'Yo yo', title: "yesterday")
+
+
+VideoLink.create(url: 'https://www.youtube.com/watch?v=Ylomy1Aw9Hk', title: 'John Oliver')
+VideoLink.create(url: 'https://www.youtube.com/watch?v=saOHKFWW3tU', title: 'Jimmy Fallon')
+VideoLink.create(url: 'https://www.youtube.com/watch?v=QxgpMLSK_I8', title: 'Ellen')

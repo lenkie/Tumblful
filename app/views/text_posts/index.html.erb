@@ -1,3 +1,26 @@
+<%= link_to 'New Post', new_text_post_path, class: 'new-link' %>
+
 <% @text_posts.each do |text_post| %>
-  <%= content_tag :p, text_post.url %>
-<% end %> 
+  <%= div_for text_post do %>
+    <h2><%= text_post.title %></h2>
+
+    <div class='likes pull-left'>
+    <span class='total-likes'><%= text_post.likes.count %></span> likes
+    </div>
+
+    <%= form_for Like.new, :remote => true do |f| %>
+      <%= f.hidden_field :likeable_type, :value => text_post.class %>
+      <%= f.hidden_field :likeable_id, :value => text_post.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Like" %>
+    <% end %>
+    
+    <%= content_tag :p do %>
+      <%= link_to(text_post.title, text_post_path(text_post)) %> | <%= link_to 'Edit', edit_text_post_path(text_post) %> 
+      <%= button_to "Delete Link", text_post_path(text_post), method: :delete, data: { confirm: "Are you sure?"} %>
+  
+      <% end %>
+      
+  <% end %>
+
+<% end %>

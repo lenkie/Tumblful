@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229211542) do
+ActiveRecord::Schema.define(version: 20160405235243) do
 
   create_table "article_links", force: true do |t|
     t.string   "title"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160229211542) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+  end
+
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "text_posts", force: true do |t|
     t.string   "title"
@@ -76,5 +86,12 @@ ActiveRecord::Schema.define(version: 20160229211542) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+
+  create_table "video_links", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

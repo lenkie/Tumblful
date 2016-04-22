@@ -3,4 +3,5 @@ class ArticleLink < ActiveRecord::Base
     
     validates_presence_of :url
     belongs_to :user 
+    has_many :likes, as: :likeable 
 end

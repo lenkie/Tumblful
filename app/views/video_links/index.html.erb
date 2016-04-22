@@ -1,0 +1,31 @@
+<%= link_to 'New Video', new_video_link_path, class: 'new-link' %>
+
+<% @video_links.each do |video_link| %>
+  <%= div_for video_link do %>
+    <h2><%= video_link.title %></h2>
+    
+
+    <div class='likes pull-left'>
+    <span class='total-likes'><%= video_link.likes.count %></span> likes<br>
+    </div>
+
+    <div>
+      <%= form_for Like.new, :remote => true do |f| %>
+      <%= f.hidden_field :likeable_type, :value => video_link.class %>
+      <%= f.hidden_field :likeable_id, :value => video_link.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Like" %>
+    <% end %>
+    </div>
+    
+    <%= content_tag :p do %>
+      <%= link_to(video_link.title, video_link_path(video_link)) %> | <%= link_to 'Edit', edit_video_link_path(video_link) %> 
+      <%= button_to "Delete Link", video_link_path(video_link), method: :delete, data: { confirm: "Are you sure?"} %>
+  
+      <% end %>
+      
+    <% end %>
+
+<% end %>
+    
+      
