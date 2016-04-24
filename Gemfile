@@ -6,9 +6,6 @@ ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -52,4 +49,11 @@ group :development, :test do
   # Use Shoulda Matchers for validation and association testing: https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
   gem 'byebug'
+
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
