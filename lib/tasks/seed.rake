@@ -1,8 +1,8 @@
-require 'ffaker'
-
 namespace :seed do
   desc "Create 5 twets for each user"
   task :twets => :environment do
+    require 'ffaker'
+
     User.find_each do |user|
       5.times do
         Twet.create(:user => user, :content => Faker::Lorem.sentence(3))
