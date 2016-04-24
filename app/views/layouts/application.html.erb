@@ -22,9 +22,11 @@
 
 </nav>
 
+<% if current_user %>
 <div id="left-nav">
   <%= render :partial => 'shared/left_nav' %>
 </div>
+<% end %>
 
 <div id="main-content">
   <%= notices %>
