@@ -18,6 +18,7 @@
     <% end %>
     </div>
     
+    
     <%= content_tag :p do %>
       <%= link_to(video_link.title, video_link_path(video_link)) %> | <%= link_to 'Edit', edit_video_link_path(video_link) %> 
       <%= button_to "Delete Link", video_link_path(video_link), method: :delete, data: { confirm: "Are you sure?"} %>

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :follows
   has_many :image_links
   has_many :likes
+  has_many :text_posts
+  has_many :image_links
+  has_many :video_links
 
   validates :name, :presence => true
   validates :username, :presence => true, :uniqueness => true

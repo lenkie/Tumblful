@@ -9,6 +9,13 @@ class FollowsController < ApplicationController
   def index
     @users = User.all_except(current_user)
   end
+  
+  def activity_stream
+    @text_posts = TextPosts.all
+    @image_links = ImageLinks.all
+    @video_links = VideoLinks.all
+    render stream: true
+  end 
 
   # POST /follows
   #
